@@ -1,0 +1,42 @@
+/* body{
+    background-color: black;
+}
+h1{
+    background-color: brown;
+    color: aliceblue;
+}
+p,h2{
+    background-color: blueviolet;
+    color: aliceblue;
+}
+#heading1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+} */
+div~p{
+    background-color: rgb(212, 212, 31);
+    color: black;
+}
+p:hover{
+    background-color: aquamarine;
+    font-size: xx-large;
+    color: blueviolet;
+}
+p::after{
+    content: " React development";
+    background-color: chocolate;
+    color: aliceblue;
+}
+p::before{
+    content: "Hey, learning React ";
+    background-color: rgb(23, 161, 161);
+}
+p::selection{
+    background-color: blue;
+}
+p::nth-child(2){
+    background-color: black;
+}
+div p:nth-of-type(1){
+    
+}
