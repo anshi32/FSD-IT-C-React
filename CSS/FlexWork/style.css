@@ -1,0 +1,37 @@
+/* body{
+    background-color: black;
+} */
+.container{
+    display: flex;
+    background-color: aquamarine;
+    border: 1px solid red;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+    /* gap: 10px; */
+}
+.child1{
+    height: 300px;
+    width: 300px;;
+    background-color: aliceblue;
+    border: 1px dotted red;
+    
+}
+.child2{
+    height: 300px;
+    width:300px;
+    background-color: blueviolet;
+    border: 1px dotted rosybrown;
+}
+.child3{
+    height: 300px;
+    width:300px;
+    background-color: violet;
+    border:1px dotted whitesmoke;
+}
+.child4{
+    height: 300px;
+    width:300px;
+    background-color: royalblue;
+    border: 1px dotted yellowgreen;
+}
