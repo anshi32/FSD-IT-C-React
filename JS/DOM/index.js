@@ -59,30 +59,30 @@
 //     button.addEventListener("click",longData);
 
 
-    function greetMsg(){
-        return "Welcome to college"
-    }
-    function msgHandler(msg,clbk){
-        console.log(msg);
-        const data=clbk();
-        return msg+","+data;
-    }
-    const student=["Rahul","Aman","Vansh"];
-    student.forEach((name)=>{
-        console.log(msgHandler(name,greetMsg));
-    })
+    // function greetMsg(){
+    //     return "Welcome to college"
+    // }
+    // function msgHandler(msg,clbk){
+    //     console.log(msg);
+    //     const data=clbk();
+    //     return msg+","+data;
+    // }
+    // const student=["Rahul","Aman","Vansh"];
+    // student.forEach((name)=>{
+    //     console.log(msgHandler(name,greetMsg));
+    // })
     // const completemsg=msgHandler("Hi",greetMsg);
     // console.log(completemsg);
 
 
-    const mypromise=new Promise((resolve,reject)=>{
-        const passord="45734";
-        if(password.length>8){
-            resolve("Password length is ok");
-        }else{
-            reject("Password length is not as per our policy");
-        }
-    });
+    // const mypromise=new Promise((resolve,reject)=>{
+    //     const passord="45734";
+    //     if(password.length>8){
+    //         resolve("Password length is ok");
+    //     }else{
+    //         reject("Password length is not as per our policy");
+    //     }
+    // });
 
     // mypromise.then((result)=>{console.log(result)})
     // .catch((err)=>{console.log(err)})
@@ -90,8 +90,34 @@
     //     console.log("All resources have closed successfully");
     // })
 
-   async function handleData(){
-        const data=await mypromise;
-        console.log(data);
-    }
-    handleData();
+//    async function handleData(){
+//         const data=await mypromise;
+//         console.log(data);
+//     }
+//     handleData();
+
+const button=document.getElementById("btn");
+const disp=document.getElementById("disp");
+let table="<table border=1>";
+async function fetchData(){
+    //alert("Boom");
+    disp.innerHTML="<h2>Data is loading...</h2>"
+    const response=await fetch('https://dummyjson.com/recipes');
+    const jsonData=await response.json();
+    console.log(jsonData.recipes);
+    //disp.innerHTML=`<h2>${jsonData.recipes[0].name}</h2> <h2>${jsonData.recipes[0].ingridients}</h2>`;
+    jsonData.recipes.forEach(element=>{
+        table+=`<tr>
+            <td><img src=${element.image} height=200 width=200 alt="image"></td>
+            <td>${element.id}</td>
+            <td>${element.name}</td>
+            <td>${element.ingredients}</td>
+        </tr>`
+    })
+    table+='</table>' ;
+    disp.innerHTML=table;
+    //console.log(jsonData);
+    //console.log(response);
+}
+button.addEventListener("click",fetchData);
+
